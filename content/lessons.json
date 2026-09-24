@@ -1,0 +1,314 @@
+{
+  "title": "Start here: basics",
+  "subtitle": "Variables, types, and operators — the building blocks of Python",
+  "lessons": [
+    {
+      "id": "variables",
+      "title": "Variables",
+      "concepts": [
+        {
+          "title": "What is a variable?",
+          "lines": [
+            "A variable is a name that stores a value.",
+            "You create one with =:",
+            ">>> price = 7",
+            "Now price stands for the number 7:",
+            ">>> print(price)",
+            "7"
+          ]
+        },
+        {
+          "title": "Name a variable",
+          "lines": [
+            "Names may use letters, digits and _:",
+            ">>> my_price = 3",
+            ">>> price_2 = 5",
+            ">>> total_90 = 8",
+            "A name cannot start with a digit and cannot contain spaces — 2price and my price are errors."
+          ]
+        },
+        {
+          "title": "Names are case-sensitive",
+          "lines": [
+            ">>> Name = \"Sam\"",
+            ">>> print(name)          # ERROR: there is no name variable",
+            "name and Name are two different variables."
+          ]
+        },
+        {
+          "title": "Variables can change",
+          "lines": [
+            "Assign again to update the value:",
+            ">>> score = 10",
+            ">>> score = 20",
+            ">>> print(score)         # 20",
+            "The new value replaces the old one."
+          ]
+        },
+        {
+          "title": "f-strings put values into text",
+          "lines": [
+            "Put f before the quotes and use {} for a value:",
+            ">>> name = \"Ada\"",
+            ">>> print(f\"Hello {name}!\")",
+            "Hello Ada!"
+          ]
+        }
+      ],
+      "exercises": [
+        {
+          "type": "mcq",
+          "question": "Which of these is a valid variable name?",
+          "options": ["my age", "my_age", "1age", "my-age"],
+          "answer": 1,
+          "hint": "Spaces, a leading digit and the dash are not allowed.",
+          "explanation": "my_age uses only letters and an underscore, and it does not start with a digit."
+        },
+        {
+          "type": "predict",
+          "snippet": "x = 12\nprint(x)",
+          "hint": "print shows the value that x stands for.",
+          "explanation": "x was assigned 12, so print(x) shows 12."
+        },
+        {
+          "type": "predict",
+          "snippet": "greeting = \"hi\"\ngreeting = \"hello\"\nprint(greeting)",
+          "hint": "The second assignment replaces the first one.",
+          "explanation": "greeting was reassigned to \"hello\", which overwrites the earlier \"hi\"."
+        },
+        {
+          "type": "predict",
+          "snippet": "count = 5\ncount = count + 1\nprint(count)",
+          "hint": "count + 1 uses the current value of count.",
+          "explanation": "count is 5, so count = 5 + 1 makes count equal to 6."
+        },
+        {
+          "type": "predict",
+          "snippet": "x = 10\ny = 20\nprint(y - x)",
+          "hint": "Subtract the value stored in x from the value stored in y.",
+          "explanation": "y is 20 and x is 10, so 20 - 10 is 10."
+        },
+        {
+          "type": "code",
+          "prompt": "Create a variable name with the value \"Ada\", then print Hello Ada. using an f-string.",
+          "expected": "Hello Ada.",
+          "hint": "print(f\"Hello {name}.\")",
+          "explanation": "The f-string slots the value of name into the message: print(f\"Hello {name}.\")."
+        }
+      ]
+    },
+    {
+      "id": "types",
+      "title": "Types",
+      "concepts": [
+        {
+          "title": "Every value has a type",
+          "lines": [
+            "Python keeps track of what kind of value you have.",
+            "42       — an int (whole number)",
+            "3.14     — a float (number with a decimal point)",
+            "\"hi\"     — a str (text)",
+            "True     — a bool (yes or no)"
+          ]
+        },
+        {
+          "title": "Ask with type()",
+          "lines": [
+            ">>> type(42)",
+            "<class 'int'>",
+            ">>> type(3.14)",
+            "<class 'float'>",
+            ">>> type(\"hi\")",
+            "<class 'str'>"
+          ]
+        },
+        {
+          "title": "Quotes make text",
+          "lines": [
+            ">>> type(7)",
+            "<class 'int'>",
+            ">>> type(\"7\")",
+            "<class 'str'>",
+            "7 is a number, but \"7\" is text — same look, different type."
+          ]
+        },
+        {
+          "title": "Convert with int(), float(), str()",
+          "lines": [
+            ">>> int(\"42\") + 1",
+            "43",
+            ">>> float(2)",
+            "2.0",
+            ">>> str(7) * 2",
+            "\"77\"  (text repeated, not the number)"
+          ]
+        },
+        {
+          "title": "Booleans are capitalised",
+          "lines": [
+            ">>> type(True)",
+            "<class 'bool'>",
+            "True and False are written with capital letters.",
+            "true or TRUE would both be errors."
+          ]
+        }
+      ],
+      "exercises": [
+        {
+          "type": "mcq",
+          "question": "What type is the value 1.0?",
+          "options": ["int", "float", "str", "bool"],
+          "answer": 1,
+          "hint": "It is written with a decimal point.",
+          "explanation": "A number written with a decimal point is a float."
+        },
+        {
+          "type": "mcq",
+          "question": "What type is the value \"42\"?",
+          "options": ["int", "float", "str", "bool"],
+          "answer": 2,
+          "hint": "The quotes turn the value into text.",
+          "explanation": "\"42\" is written inside quotes, so it is a str even though it looks like a number."
+        },
+        {
+          "type": "predict",
+          "snippet": "print(type(5))",
+          "hint": "5 is a whole number.",
+          "explanation": "5 is a whole number, so type(5) reports <class 'int'>."
+        },
+        {
+          "type": "predict",
+          "snippet": "print(type(True))",
+          "hint": "True is one of the two boolean values.",
+          "explanation": "True is a boolean, so type(True) reports <class 'bool'>."
+        },
+        {
+          "type": "predict",
+          "snippet": "print(int(\"3\") + 4)",
+          "hint": "int(\"3\") turns the text \"3\" into the number 3.",
+          "explanation": "int(\"3\") converts the text to the number 3, and 3 + 4 is 7."
+        },
+        {
+          "type": "predict",
+          "snippet": "print(float(2))",
+          "hint": "float() adds a decimal point to a whole number.",
+          "explanation": "float(2) turns the int 2 into the float 2.0."
+        },
+        {
+          "type": "code",
+          "prompt": "Print the type of the number 3.14. You should see <class 'float'>.",
+          "expected": "<class 'float'>",
+          "hint": "print(type(3.14))",
+          "explanation": "print(type(3.14)) runs type on the value and prints <class 'float'>."
+        }
+      ]
+    },
+    {
+      "id": "operators",
+      "title": "Operators",
+      "concepts": [
+        {
+          "title": "Arithmetic",
+          "lines": [
+            ">>> 7 / 2      # true division",
+            "3.5",
+            ">>> 7 // 2     # floor division — rounds down",
+            "3",
+            ">>> 7 % 2      # remainder after division",
+            "1",
+            ">>> 2 ** 3     # 2 to the power 3",
+            "8"
+          ]
+        },
+        {
+          "title": "Comparison",
+          "lines": [
+            ">>> 10 > 5",
+            "True",
+            ">>> 3 == 4",
+            "False",
+            "Comparison gives back a bool: True or False."
+          ]
+        },
+        {
+          "title": "Logical and, or, not",
+          "lines": [
+            ">>> 10 > 5 and 3 < 4",
+            "True",
+            ">>> not (1 == 2)",
+            "True",
+            "not flips a True to False and a False to True."
+          ]
+        },
+        {
+          "title": "Operators also work on text",
+          "lines": [
+            ">>> \"ab\" + \"cd\"",
+            "abcd",
+            ">>> \"hi \" * 3",
+            "hi hi hi ",
+            "+ joins strings, and * repeats them."
+          ]
+        },
+        {
+          "title": "Order of operations",
+          "lines": [
+            "Python follows the usual maths order:",
+            "parentheses first, then **, then * / // % , then + - .",
+            ">>> 2 + 3 * 4",
+            "14        (3 * 4 happens first)"
+          ]
+        }
+      ],
+      "exercises": [
+        {
+          "type": "mcq",
+          "question": "What is 7 // 2?",
+          "options": ["3.5", "3", "4", "2"],
+          "answer": 1,
+          "hint": "// divides and rounds down.",
+          "explanation": "7 // 2 is floor division, which gives 3 (it rounds 3.5 down)."
+        },
+        {
+          "type": "mcq",
+          "question": "What is 7 % 2?",
+          "options": ["0", "1", "2", "3.5"],
+          "answer": 1,
+          "hint": "% gives the remainder after dividing.",
+          "explanation": "7 divided by 2 fits 3 times with 1 left over, so 7 % 2 is 1."
+        },
+        {
+          "type": "predict",
+          "snippet": "print(2 ** 3)",
+          "hint": "** means to the power of.",
+          "explanation": "2 ** 3 means 2 × 2 × 2, which is 8."
+        },
+        {
+          "type": "predict",
+          "snippet": "print(10 > 5 and 3 < 4)",
+          "hint": "Both comparisons must be True for and to be True.",
+          "explanation": "10 > 5 is True and 3 < 4 is True, so True and True is True."
+        },
+        {
+          "type": "predict",
+          "snippet": "print(not (1 == 2))",
+          "hint": "Check 1 == 2 first, then apply not.",
+          "explanation": "1 == 2 is False, and not False is True."
+        },
+        {
+          "type": "predict",
+          "snippet": "print(\"3\" + \"4\")",
+          "hint": "Strings do not add like numbers — + joins text.",
+          "explanation": "\"3\" and \"4\" are text, so + joins them into the text \"34\"."
+        },
+        {
+          "type": "code",
+          "prompt": "Print 7 divided by 2 using true division. You should see 3.5.",
+          "expected": "3.5",
+          "hint": "print(7 / 2)",
+          "explanation": "/ is true division, so 7 / 2 is 3.5. (It is // that would give 3.)"
+        }
+      ]
+    }
+  ]
+}
