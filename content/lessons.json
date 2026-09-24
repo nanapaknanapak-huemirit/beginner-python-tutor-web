@@ -77,6 +77,19 @@
         { "day": 13, "task": "Arrays & objects" },
         { "day": 14, "task": "Project: Responsive landing page + JS quiz" }
       ]
+    },
+    {
+      "id": "week3",
+      "title": "Week 3: DOM & Intermediate JS",
+      "days": [
+        { "day": 15, "task": "DOM selection & events" },
+        { "day": 16, "task": "Form validation" },
+        { "day": 17, "task": "Fetch API & JSON" },
+        { "day": 18, "task": "Async/await" },
+        { "day": 19, "task": "Git & GitHub" },
+        { "day": 20, "task": "Project: Todo app (localStorage)" },
+        { "day": 21, "task": "Project: Weather app (free API)" }
+      ]
     }
   ],
   "lessons": [
