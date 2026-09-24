@@ -358,7 +358,7 @@
       "Rules of the color challenges",
       `<ul>${data.howToPlay.map((h) => `<li>${esc(h)}</li>`).join("")}</ul>`
     );
-    return `${sectionTitle("CSS Color Challenges")}
+    return `<h2 class="section-title chal-title">CSS Color Challenges</h2>
       <div class="card-grid">${how}${data.levels.map(levelCard).join("")}</div>`;
   }
 
