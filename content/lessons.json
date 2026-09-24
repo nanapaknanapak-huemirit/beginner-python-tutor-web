@@ -90,6 +90,21 @@
         { "day": 20, "task": "Project: Todo app (localStorage)" },
         { "day": 21, "task": "Project: Weather app (free API)" }
       ]
+    },
+    {
+      "id": "week4",
+      "title": "Week 4: Framework + Backend Intro",
+      "days": [
+        { "day": 22, "task": "React setup & components" },
+        { "day": 23, "task": "Props & state" },
+        { "day": 24, "task": "Lists & events in React" },
+        { "day": 25, "task": "React project: task manager" },
+        { "day": 26, "task": "Node.js & Express basics" },
+        { "day": 27, "task": "REST API with Express" },
+        { "day": 28, "task": "Connect frontend ↔ backend" },
+        { "day": 29, "task": "Deploy: GitHub Pages + Render" },
+        { "day": 30, "task": "Review + portfolio update" }
+      ]
     }
   ],
   "lessons": [
