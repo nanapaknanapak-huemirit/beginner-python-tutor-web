@@ -2,108 +2,584 @@
   "title": "Python Basics",
   "subtitle": "Learn by doing — variables, types, and operators",
   "byLanguage": [
-    { "name": "Python", "tagline": "Easiest syntax, great for beginners", "status": "available" },
-    { "name": "JavaScript", "tagline": "Instant feedback in the browser", "status": "coming" },
-    { "name": "Scratch", "tagline": "Visual blocks, ideal for kids", "status": "coming" },
-    { "name": "HTML/CSS", "tagline": "Quick path to building web pages", "status": "coming" }
+    {
+      "name": "Python",
+      "tagline": "Easiest syntax, great for beginners",
+      "status": "available"
+    },
+    {
+      "name": "JavaScript",
+      "tagline": "Instant feedback in the browser",
+      "status": "coming"
+    },
+    {
+      "name": "Scratch",
+      "tagline": "Visual blocks, ideal for kids",
+      "status": "coming"
+    },
+    {
+      "name": "HTML/CSS",
+      "tagline": "Quick path to building web pages",
+      "status": "coming"
+    }
   ],
   "learningPaths": [
     {
       "name": "Interactive platforms",
       "items": [
-        { "label": "freeCodeCamp", "url": "https://www.freecodecamp.org" },
-        { "label": "Codecademy", "url": "https://www.codecademy.com" },
-        { "label": "The Odin Project", "url": "https://www.theodinproject.com" }
+        {
+          "label": "freeCodeCamp",
+          "url": "https://www.freecodecamp.org"
+        },
+        {
+          "label": "Codecademy",
+          "url": "https://www.codecademy.com"
+        },
+        {
+          "label": "The Odin Project",
+          "url": "https://www.theodinproject.com"
+        }
       ]
     },
     {
       "name": "Structured courses",
       "items": [
-        { "label": "CS50 — Harvard, free", "url": "https://cs50.harvard.edu" },
-        { "label": "Coursera", "url": "https://www.coursera.org" },
-        { "label": "edX", "url": "https://www.edx.org" }
+        {
+          "label": "CS50 — Harvard, free",
+          "url": "https://cs50.harvard.edu"
+        },
+        {
+          "label": "Coursera",
+          "url": "https://www.coursera.org"
+        },
+        {
+          "label": "edX",
+          "url": "https://www.edx.org"
+        }
       ]
     },
     {
       "name": "Practice sites",
       "items": [
-        { "label": "Codewars", "url": "https://www.codewars.com" },
-        { "label": "LeetCode", "url": "https://leetcode.com" },
-        { "label": "Exercism", "url": "https://exercism.org" },
-        { "label": "HackerRank", "url": "https://www.hackerrank.com" }
+        {
+          "label": "Codewars",
+          "url": "https://www.codewars.com"
+        },
+        {
+          "label": "LeetCode",
+          "url": "https://leetcode.com"
+        },
+        {
+          "label": "Exercism",
+          "url": "https://exercism.org"
+        },
+        {
+          "label": "HackerRank",
+          "url": "https://www.hackerrank.com"
+        }
       ]
     },
     {
       "name": "Books",
       "items": [
-        { "label": "Automate the Boring Stuff (Python)", "url": "https://automatetheboringstuff.com" },
-        { "label": "Eloquent JavaScript", "url": "https://eloquentjavascript.net" }
+        {
+          "label": "Automate the Boring Stuff (Python)",
+          "url": "https://automatetheboringstuff.com"
+        },
+        {
+          "label": "Eloquent JavaScript",
+          "url": "https://eloquentjavascript.net"
+        }
       ]
     },
     {
       "name": "Projects to build",
-      "text": ["a calculator", "a todo app", "a simple game"]
+      "text": [
+        "a calculator",
+        "a todo app",
+        "a simple game"
+      ]
     }
   ],
   "byStyle": [
-    { "name": "Guided", "text": "Follow a structured path — courses and tutorials that walk you through each topic step by step." },
-    { "name": "Hands-on", "text": "Practice with daily coding challenges — small problems that build muscle memory and speed." },
-    { "name": "Project-based", "text": "Learn by building: pick a project such as a calculator or a simple game, and let it teach you what you need." },
-    { "name": "Community", "text": "Learn together — study groups, Discord servers, and open source contributions." }
+    {
+      "name": "Guided",
+      "text": "Follow a structured path — courses and tutorials that walk you through each topic step by step."
+    },
+    {
+      "name": "Hands-on",
+      "text": "Practice with daily coding challenges — small problems that build muscle memory and speed."
+    },
+    {
+      "name": "Project-based",
+      "text": "Learn by building: pick a project such as a calculator or a simple game, and let it teach you what you need."
+    },
+    {
+      "name": "Community",
+      "text": "Learn together — study groups, Discord servers, and open source contributions."
+    }
+  ],
+  "habits": [
+    {
+      "title": "70/30 split",
+      "text": "70% coding, 30% reading or watching — stay hands-on."
+    },
+    {
+      "title": "Commit daily",
+      "text": "Push your code to GitHub every single day."
+    },
+    {
+      "title": "Unstick fast",
+      "text": "Stuck for 30+ minutes? Ask AI or check MDN, then keep going."
+    },
+    {
+      "title": "Next step",
+      "text": "After day 30, pick a specialty — React deep-dive, backend, or full-stack — and build real projects."
+    }
   ],
   "weeks": [
     {
       "id": "week1",
       "title": "Week 1: HTML & CSS Basics",
       "days": [
-        { "day": 1, "task": "HTML structure, tags, links, images" },
-        { "day": 2, "task": "Lists, tables, forms" },
-        { "day": 3, "task": "CSS selectors, colors, fonts" },
-        { "day": 4, "task": "Box model, spacing, margins" },
-        { "day": 5, "task": "Flexbox" },
-        { "day": 6, "task": "CSS Grid" },
-        { "day": 7, "task": "Project: Personal profile page" }
+        {
+          "day": 1,
+          "task": "HTML structure, tags, links, images",
+          "links": [
+            {
+              "label": "MDN: Introduction to HTML",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML"
+            },
+            {
+              "label": "MDN: Creating hyperlinks",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks"
+            },
+            {
+              "label": "MDN: Images in HTML",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Images_in_HTML"
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "task": "Lists, tables, forms",
+          "links": [
+            {
+              "label": "MDN: HTML text & lists",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals"
+            },
+            {
+              "label": "MDN: HTML tables basics",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Basics"
+            },
+            {
+              "label": "MDN: Forms",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn/Forms"
+            }
+          ]
+        },
+        {
+          "day": 3,
+          "task": "CSS selectors, colors, fonts",
+          "links": [
+            {
+              "label": "MDN: CSS first steps",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps"
+            },
+            {
+              "label": "MDN: Selecting elements",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors"
+            },
+            {
+              "label": "MDN: Styling text & fonts",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text"
+            }
+          ]
+        },
+        {
+          "day": 4,
+          "task": "Box model, spacing, margins",
+          "links": [
+            {
+              "label": "MDN: The box model",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model"
+            },
+            {
+              "label": "MDN: margin",
+              "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/margin"
+            },
+            {
+              "label": "MDN: padding",
+              "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/padding"
+            }
+          ]
+        },
+        {
+          "day": 5,
+          "task": "Flexbox",
+          "links": [
+            {
+              "label": "CSS-Tricks: A complete guide to Flexbox",
+              "url": "https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
+            },
+            {
+              "label": "MDN: Flexbox",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox"
+            }
+          ]
+        },
+        {
+          "day": 6,
+          "task": "CSS Grid",
+          "links": [
+            {
+              "label": "CSS-Tricks: A complete guide to Grid",
+              "url": "https://css-tricks.com/snippets/css/complete-guide-grid/"
+            },
+            {
+              "label": "MDN: Grids",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids"
+            }
+          ]
+        },
+        {
+          "day": 7,
+          "task": "Project: Personal profile page",
+          "links": [
+            {
+              "label": "freeCodeCamp: Responsive Web Design projects",
+              "url": "https://www.freecodecamp.org/learn/2022/responsive-web-design/"
+            },
+            {
+              "label": "GitHub Pages quickstart: deploy it",
+              "url": "https://docs.github.com/en/pages/quickstart"
+            }
+          ]
+        }
       ]
     },
     {
       "id": "week2",
       "title": "Week 2: Responsive Design + JS Basics",
       "days": [
-        { "day": 8, "task": "Media queries, mobile-first" },
-        { "day": 9, "task": "Variables, data types, operators" },
-        { "day": 10, "task": "Conditionals (if/else)" },
-        { "day": 11, "task": "Loops" },
-        { "day": 12, "task": "Functions" },
-        { "day": 13, "task": "Arrays & objects" },
-        { "day": 14, "task": "Project: Responsive landing page + JS quiz" }
+        {
+          "day": 8,
+          "task": "Media queries, mobile-first",
+          "links": [
+            {
+              "label": "MDN: Using media queries",
+              "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries"
+            },
+            {
+              "label": "MDN: Responsive design",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design"
+            }
+          ]
+        },
+        {
+          "day": 9,
+          "task": "Variables, data types, operators",
+          "links": [
+            {
+              "label": "MDN: JS first steps",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps"
+            },
+            {
+              "label": "MDN: What are variables?",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables"
+            },
+            {
+              "label": "MDN: JavaScript data structures",
+              "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures"
+            }
+          ]
+        },
+        {
+          "day": 10,
+          "task": "Conditionals (if/else)",
+          "links": [
+            {
+              "label": "MDN: Making decisions (if/else)",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals"
+            }
+          ]
+        },
+        {
+          "day": 11,
+          "task": "Loops",
+          "links": [
+            {
+              "label": "MDN: Looping code",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code"
+            }
+          ]
+        },
+        {
+          "day": 12,
+          "task": "Functions",
+          "links": [
+            {
+              "label": "MDN: Functions",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Functions"
+            },
+            {
+              "label": "MDN: Function guide",
+              "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions"
+            }
+          ]
+        },
+        {
+          "day": 13,
+          "task": "Arrays & objects",
+          "links": [
+            {
+              "label": "MDN: Arrays",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Arrays"
+            },
+            {
+              "label": "MDN: Object basics",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics"
+            }
+          ]
+        },
+        {
+          "day": 14,
+          "task": "Project: Responsive landing page + JS quiz",
+          "links": [
+            {
+              "label": "freeCodeCamp: JavaScript challenges",
+              "url": "https://www.freecodecamp.org/learn/2022/javascript-algorithms-and-data-structures/"
+            }
+          ]
+        }
       ]
     },
     {
       "id": "week3",
       "title": "Week 3: DOM & Intermediate JS",
       "days": [
-        { "day": 15, "task": "DOM selection & events" },
-        { "day": 16, "task": "Form validation" },
-        { "day": 17, "task": "Fetch API & JSON" },
-        { "day": 18, "task": "Async/await" },
-        { "day": 19, "task": "Git & GitHub" },
-        { "day": 20, "task": "Project: Todo app (localStorage)" },
-        { "day": 21, "task": "Project: Weather app (free API)" }
+        {
+          "day": 15,
+          "task": "DOM selection & events",
+          "links": [
+            {
+              "label": "MDN: Manipulating documents",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents"
+            },
+            {
+              "label": "MDN: Introduction to events",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events"
+            }
+          ]
+        },
+        {
+          "day": 16,
+          "task": "Form validation",
+          "links": [
+            {
+              "label": "MDN: Client-side form validation",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation"
+            }
+          ]
+        },
+        {
+          "day": 17,
+          "task": "Fetch API & JSON",
+          "links": [
+            {
+              "label": "MDN: Using the Fetch API",
+              "url": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch"
+            },
+            {
+              "label": "MDN: Working with JSON",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON"
+            },
+            {
+              "label": "JSONPlaceholder: free test API",
+              "url": "https://jsonplaceholder.typicode.com/"
+            }
+          ]
+        },
+        {
+          "day": 18,
+          "task": "Async/await",
+          "links": [
+            {
+              "label": "MDN: Async and await",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await"
+            },
+            {
+              "label": "javascript.info: Async/await",
+              "url": "https://javascript.info/async-await"
+            }
+          ]
+        },
+        {
+          "day": 19,
+          "task": "Git & GitHub",
+          "links": [
+            {
+              "label": "git-scm: official docs",
+              "url": "https://git-scm.com/doc"
+            },
+            {
+              "label": "GitHub Docs: Getting started",
+              "url": "https://docs.github.com/en/get-started"
+            },
+            {
+              "label": "GitHub Skills",
+              "url": "https://skills.github.com/"
+            }
+          ]
+        },
+        {
+          "day": 20,
+          "task": "Project: Todo app (localStorage)",
+          "links": [
+            {
+              "label": "MDN: Using the Web Storage API",
+              "url": "https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API"
+            }
+          ]
+        },
+        {
+          "day": 21,
+          "task": "Project: Weather app (free API)",
+          "links": [
+            {
+              "label": "Open-Meteo: free weather API",
+              "url": "https://open-meteo.com/"
+            },
+            {
+              "label": "MDN: Using the Fetch API",
+              "url": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch"
+            }
+          ]
+        }
       ]
     },
     {
       "id": "week4",
       "title": "Week 4: Framework + Backend Intro",
       "days": [
-        { "day": 22, "task": "React setup & components" },
-        { "day": 23, "task": "Props & state" },
-        { "day": 24, "task": "Lists & events in React" },
-        { "day": 25, "task": "React project: task manager" },
-        { "day": 26, "task": "Node.js & Express basics" },
-        { "day": 27, "task": "REST API with Express" },
-        { "day": 28, "task": "Connect frontend ↔ backend" },
-        { "day": 29, "task": "Deploy: GitHub Pages + Render" },
-        { "day": 30, "task": "Review + portfolio update" }
+        {
+          "day": 22,
+          "task": "React setup & components",
+          "links": [
+            {
+              "label": "react.dev: Learn React",
+              "url": "https://react.dev/learn"
+            },
+            {
+              "label": "react.dev: Your first component",
+              "url": "https://react.dev/learn/your-first-component"
+            }
+          ]
+        },
+        {
+          "day": 23,
+          "task": "Props & state",
+          "links": [
+            {
+              "label": "react.dev: Passing props",
+              "url": "https://react.dev/learn/passing-props-to-a-component"
+            },
+            {
+              "label": "react.dev: State, a component's memory",
+              "url": "https://react.dev/learn/state-a-components-memory"
+            }
+          ]
+        },
+        {
+          "day": 24,
+          "task": "Lists & events in React",
+          "links": [
+            {
+              "label": "react.dev: Rendering lists",
+              "url": "https://react.dev/learn/rendering-lists"
+            },
+            {
+              "label": "react.dev: Responding to events",
+              "url": "https://react.dev/learn/responding-to-events"
+            }
+          ]
+        },
+        {
+          "day": 25,
+          "task": "React project: task manager",
+          "links": [
+            {
+              "label": "react.dev: Thinking in React",
+              "url": "https://react.dev/learn/thinking-in-react"
+            }
+          ]
+        },
+        {
+          "day": 26,
+          "task": "Node.js & Express basics",
+          "links": [
+            {
+              "label": "nodejs.org: Learn Node.js",
+              "url": "https://nodejs.org/en/learn"
+            },
+            {
+              "label": "Express: Hello world example",
+              "url": "https://expressjs.com/en/starter/hello-world.html"
+            }
+          ]
+        },
+        {
+          "day": 27,
+          "task": "REST API with Express",
+          "links": [
+            {
+              "label": "Express: Routing guide",
+              "url": "https://expressjs.com/en/guide/routing.html"
+            },
+            {
+              "label": "MDN: Client-server overview",
+              "url": "https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Client-Server_overview"
+            }
+          ]
+        },
+        {
+          "day": 28,
+          "task": "Connect frontend ↔ backend",
+          "links": [
+            {
+              "label": "MDN: CORS",
+              "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS"
+            },
+            {
+              "label": "MDN: Using the Fetch API",
+              "url": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch"
+            }
+          ]
+        },
+        {
+          "day": 29,
+          "task": "Deploy: GitHub Pages + Render",
+          "links": [
+            {
+              "label": "GitHub Pages quickstart",
+              "url": "https://docs.github.com/en/pages/quickstart"
+            },
+            {
+              "label": "Render: deployment docs",
+              "url": "https://render.com/docs"
+            }
+          ]
+        },
+        {
+          "day": 30,
+          "task": "Review + portfolio update",
+          "links": [
+            {
+              "label": "GitHub: About your profile",
+              "url": "https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile"
+            }
+          ]
+        }
       ]
     }
   ],
@@ -165,7 +641,12 @@
         {
           "type": "mcq",
           "question": "Which of these is a valid variable name?",
-          "options": ["my age", "my_age", "1age", "my-age"],
+          "options": [
+            "my age",
+            "my_age",
+            "1age",
+            "my-age"
+          ],
           "answer": 1,
           "hint": "Spaces, a leading digit and the dash are not allowed.",
           "explanation": "my_age uses only letters and an underscore, and it does not start with a digit."
@@ -263,7 +744,12 @@
         {
           "type": "mcq",
           "question": "What type is the value 1.0?",
-          "options": ["int", "float", "str", "bool"],
+          "options": [
+            "int",
+            "float",
+            "str",
+            "bool"
+          ],
           "answer": 1,
           "hint": "It is written with a decimal point.",
           "explanation": "A number written with a decimal point is a float."
@@ -271,7 +757,12 @@
         {
           "type": "mcq",
           "question": "What type is the value \"42\"?",
-          "options": ["int", "float", "str", "bool"],
+          "options": [
+            "int",
+            "float",
+            "str",
+            "bool"
+          ],
           "answer": 2,
           "hint": "The quotes turn the value into text.",
           "explanation": "\"42\" is written inside quotes, so it is a str even though it looks like a number."
@@ -370,7 +861,12 @@
         {
           "type": "mcq",
           "question": "What is 7 // 2?",
-          "options": ["3.5", "3", "4", "2"],
+          "options": [
+            "3.5",
+            "3",
+            "4",
+            "2"
+          ],
           "answer": 1,
           "hint": "// divides and rounds down.",
           "explanation": "7 // 2 is floor division, which gives 3 (it rounds 3.5 down)."
@@ -378,7 +874,12 @@
         {
           "type": "mcq",
           "question": "What is 7 % 2?",
-          "options": ["0", "1", "2", "3.5"],
+          "options": [
+            "0",
+            "1",
+            "2",
+            "3.5"
+          ],
           "answer": 1,
           "hint": "% gives the remainder after dividing.",
           "explanation": "7 divided by 2 fits 3 times with 1 left over, so 7 % 2 is 1."

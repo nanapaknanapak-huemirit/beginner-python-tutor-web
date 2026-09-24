@@ -148,7 +148,7 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
 
 .day-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   width: 100%;
   text-align: left;
@@ -175,6 +175,7 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
   line-height: 15px;
   text-align: center;
   flex: 0 0 auto;
+  margin-top: 2px;
 }
 .day-row.done .day-check { background: var(--ok); border-color: var(--ok); }
 
@@ -184,8 +185,39 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
   color: var(--accent);
   font-size: 13px;
   width: 54px;
+  line-height: 1.7;
+}
+
+.day-body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  min-width: 0;
 }
 .day-task { flex: 1; }
+
+.day-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  font-size: 12px;
+}
+.day-link {
+  color: var(--accent);
+  text-decoration: none;
+}
+.day-link:hover { text-decoration: underline; }
+
+.habits-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+.habit-card {
+  background: var(--card);
+  border: 1px solid #e2e7f2;
+  border-radius: var(--radius);
+  padding: 12px 14px;
+}
+.habit-card b { display: block; color: var(--ink); font-size: 14px; }
+.habit-card p { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
 
 .brand {
   border: none;

@@ -117,13 +117,26 @@ function styleCard(style) {
   return expandCard(style.name, "", `<p>${esc(style.text)}</p>`);
 }
 
-function dayRowHtml(day, checked) {
+function habitCard(habit) {
   return `
-    <button class="day-row${checked ? " done" : ""}" data-day="${day.day}">
+    <div class="habit-card">
+      <b>${esc(habit.title)}</b>
+      <p>${esc(habit.text)}</p>
+    </div>`;
+}
+
+function dayRowHtml(day, checked) {
+  const links = (day.links || []).map((l) =>
+    `<a class="day-link" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join("");
+  return `
+    <div class="day-row${checked ? " done" : ""}" data-day="${day.day}">
       <span class="day-check">${checked ? "&#10003;" : ""}</span>
       <span class="day-num">Day ${day.day}</span>
-      <span class="day-task">${esc(day.task)}</span>
-    </button>`;
+      <span class="day-body">
+        <span class="day-task">${esc(day.task)}</span>
+        ${links ? `<span class="day-links">${links}</span>` : ""}
+      </span>
+    </div>`;
 }
 
 function weekCard(week) {
@@ -153,7 +166,8 @@ function updateWeekCard(cardEl, weekId) {
 
 function bindDayRows(cardEl, weekId) {
   cardEl.querySelectorAll("[data-day]").forEach((row) => {
-    row.addEventListener("click", () => {
+    row.addEventListener("click", (e) => {
+      if (e.target.closest("a")) return;
       toggleDay(weekId, Number(row.dataset.day));
       updateWeekCard(cardEl, weekId);
     });
@@ -168,6 +182,8 @@ function renderHome() {
       <h1>${esc(STATE.data.title)}</h1>
       <p class="subtitle">${esc(STATE.data.subtitle)}</p>
       ${loadStudent() ? `<p class="greeting">${esc("Hi, " + loadStudent() + "!")} Pick a path below and start learning.</p>` : ""}
+      ${STATE.data.habits ? sectionTitle("Daily Habits") : ""}
+      ${STATE.data.habits ? `<div class="card-grid habits-grid">${STATE.data.habits.map(habitCard).join("")}</div>` : ""}
       ${sectionTitle("By Language")}
       <div class="card-grid">${STATE.data.byLanguage.map(languageCard).join("")}</div>
       ${sectionTitle("By Learning Path")}
