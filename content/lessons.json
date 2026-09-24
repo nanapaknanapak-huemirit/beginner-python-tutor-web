@@ -1,6 +1,56 @@
 {
-  "title": "Start here: basics",
-  "subtitle": "Variables, types, and operators — the building blocks of Python",
+  "title": "Python Basics",
+  "subtitle": "Learn by doing — variables, types, and operators",
+  "byLanguage": [
+    { "name": "Python", "tagline": "Easiest syntax, great for beginners", "status": "available" },
+    { "name": "JavaScript", "tagline": "Instant feedback in the browser", "status": "coming" },
+    { "name": "Scratch", "tagline": "Visual blocks, ideal for kids", "status": "coming" },
+    { "name": "HTML/CSS", "tagline": "Quick path to building web pages", "status": "coming" }
+  ],
+  "learningPaths": [
+    {
+      "name": "Interactive platforms",
+      "items": [
+        { "label": "freeCodeCamp", "url": "https://www.freecodecamp.org" },
+        { "label": "Codecademy", "url": "https://www.codecademy.com" },
+        { "label": "The Odin Project", "url": "https://www.theodinproject.com" }
+      ]
+    },
+    {
+      "name": "Structured courses",
+      "items": [
+        { "label": "CS50 — Harvard, free", "url": "https://cs50.harvard.edu" },
+        { "label": "Coursera", "url": "https://www.coursera.org" },
+        { "label": "edX", "url": "https://www.edx.org" }
+      ]
+    },
+    {
+      "name": "Practice sites",
+      "items": [
+        { "label": "Codewars", "url": "https://www.codewars.com" },
+        { "label": "LeetCode", "url": "https://leetcode.com" },
+        { "label": "Exercism", "url": "https://exercism.org" },
+        { "label": "HackerRank", "url": "https://www.hackerrank.com" }
+      ]
+    },
+    {
+      "name": "Books",
+      "items": [
+        { "label": "Automate the Boring Stuff (Python)", "url": "https://automatetheboringstuff.com" },
+        { "label": "Eloquent JavaScript", "url": "https://eloquentjavascript.net" }
+      ]
+    },
+    {
+      "name": "Projects to build",
+      "text": ["a calculator", "a todo app", "a simple game"]
+    }
+  ],
+  "byStyle": [
+    { "name": "Guided", "text": "Follow a structured path — courses and tutorials that walk you through each topic step by step." },
+    { "name": "Hands-on", "text": "Practice with daily coding challenges — small problems that build muscle memory and speed." },
+    { "name": "Project-based", "text": "Learn by building: pick a project such as a calculator or a simple game, and let it teach you what you need." },
+    { "name": "Community", "text": "Learn together — study groups, Discord servers, and open source contributions." }
+  ],
   "lessons": [
     {
       "id": "variables",

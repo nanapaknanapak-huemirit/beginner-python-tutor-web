@@ -1,3 +1,5 @@
+const STD_KEY = "student_name";
+
 const STATE = {
   data: null,
   lesson: null,
@@ -14,12 +16,104 @@ const homeBtn = document.getElementById("btn-home");
 
 homeBtn.addEventListener("click", renderHome);
 
+function setPageName(text) {
+  const el = document.getElementById("page-name");
+  if (el) el.textContent = text;
+}
+
+function loadStudent() {
+  try { return localStorage.getItem(STD_KEY) || ""; } catch { return ""; }
+}
+
+function saveStudent(name) {
+  try { localStorage.setItem(STD_KEY, name); } catch {}
+}
+
+function greet(core, suffix) {
+  const name = loadStudent();
+  return `${core}${name ? `, ${name}` : ""}${suffix || "!"}`;
+}
+
+function renderStudentWidget(editing) {
+  const slot = document.getElementById("student-widget");
+  if (!slot) return;
+  const name = loadStudent();
+  if (name && !editing) {
+    slot.innerHTML = `<span class="student-chip">Student: <b>${esc(name)}</b> <button class="text-btn" data-edit>edit</button></span>`;
+    slot.querySelector("[data-edit]").addEventListener("click", () => renderStudentWidget(true));
+    return;
+  }
+  slot.innerHTML = `<span class="student-form">
+    <input id="student-input" type="text" placeholder="Your name" maxlength="30" value="${esc(editing ? name : "")}" />
+    <button class="btn-mini" data-save>${editing ? "Update" : "Save"}</button>
+    ${editing ? `<button class="text-btn" data-cancel>cancel</button>` : ""}
+  </span>`;
+  const input = slot.querySelector("#student-input");
+  const doSave = () => {
+    const value = input.value.trim();
+    if (!value) return;
+    saveStudent(value);
+    renderStudentWidget();
+    renderHome();
+  };
+  slot.querySelector("[data-save]").addEventListener("click", doSave);
+  input.addEventListener("keydown", (e) => { if (e.key === "Enter") doSave(); });
+  if (editing) slot.querySelector("[data-cancel]").addEventListener("click", () => renderStudentWidget());
+  input.focus();
+}
+
+function sectionTitle(text) {
+  return `<h2 class="section-title">${esc(text)}</h2>`;
+}
+
+function expandCard(name, sub, detail, pill) {
+  return `
+    <div class="expand-card">
+      <button class="expand-head">
+        <span class="expand-name">${esc(name)} ${pill || ""}</span>
+        ${sub ? `<span class="expand-sub">${esc(sub)}</span>` : ""}
+      </button>
+      <div class="expand-detail" hidden>${detail}</div>
+    </div>`;
+}
+
+function languageCard(lang) {
+  const ready = lang.status === "available";
+  const pill = ready ? `<span class="pill">Ready</span>` : `<span class="pill soon">Coming soon</span>`;
+  const detail = ready
+    ? `<p>Python is ready — start with the lessons in the sections below.</p>`
+    : `<p>${esc(lang.tagline)}. Lessons for ${esc(lang.name)} are on the way.</p>`;
+  return expandCard(lang.name, lang.tagline, detail, pill);
+}
+
+function pathCard(path) {
+  const items = Array.isArray(path.items)
+    ? path.items.map((it) => it.url
+        ? `<li><a href="${esc(it.url)}" target="_blank" rel="noopener">${esc(it.label)}</a></li>`
+        : `<li>${esc(it)}</li>`).join("")
+    : (path.text || []).map((t) => `<li>${esc(t)}</li>`).join("");
+  return expandCard(path.name, "", `<ul class="link-list">${items}</ul>`);
+}
+
+function styleCard(style) {
+  return expandCard(style.name, "", `<p>${esc(style.text)}</p>`);
+}
+
 function renderHome() {
   if (!STATE.data) return;
+  setPageName("Home");
   view.innerHTML = `
     <div class="topic card">
       <h1>${esc(STATE.data.title)}</h1>
       <p class="subtitle">${esc(STATE.data.subtitle)}</p>
+      ${loadStudent() ? `<p class="greeting">${esc("Hi, " + loadStudent() + "!")} Pick a path below and start learning.</p>` : ""}
+      ${sectionTitle("By Language")}
+      <div class="card-grid">${STATE.data.byLanguage.map(languageCard).join("")}</div>
+      ${sectionTitle("By Learning Path")}
+      <div class="card-grid">${STATE.data.learningPaths.map(pathCard).join("")}</div>
+      ${sectionTitle("By Style")}
+      <div class="card-grid">${STATE.data.byStyle.map(styleCard).join("")}</div>
+      ${sectionTitle("Python lessons")}
       <div class="lesson-list">
         ${STATE.data.lessons.map((lesson, i) => `
           <button class="lesson-link" data-open="${i}">
@@ -37,10 +131,24 @@ function renderHome() {
       renderLesson();
     });
   });
+  bindExpandCards();
+}
+
+function bindExpandCards() {
+  view.querySelectorAll(".expand-card").forEach((card) => {
+    const head = card.querySelector(".expand-head");
+    const detail = card.querySelector(".expand-detail");
+    head.addEventListener("click", () => {
+      const open = detail.hidden !== true;
+      detail.hidden = !detail.hidden;
+      card.classList.toggle("open", !open);
+    });
+  });
 }
 
 function renderLesson() {
   const lesson = STATE.lesson;
+  setPageName(`${STATE.data.lessons.indexOf(lesson) + 1} · ${lesson.title}`);
   view.innerHTML = `
     <div class="card">
       <button class="primary" data-home>Exit lesson</button>
@@ -76,6 +184,8 @@ function renderExercise() {
   const ex = exercises[STATE.exerciseIndex];
   STATE.attempts = 0;
   STATE.busy = false;
+
+  setPageName(`${lesson.title} · Exercise ${STATE.exerciseIndex + 1} of ${exercises.length}`);
 
   view.innerHTML = `
     <div class="card">
@@ -116,7 +226,7 @@ function attachNext(feedbackSlot) {
 function correctFeedback(feedbackSlot, ex, outputLine) {
   if (STATE.attempts === 0) STATE.score += 1;
   const body = `${outputLine || ""}<p>${esc(ex.explanation)}</p>${nextButton()}`;
-  feedbackSlot.innerHTML = `<div class="feedback ok"><span class="head">Correct!</span>${body}</div>`;
+  feedbackSlot.innerHTML = `<div class="feedback ok"><span class="head">${esc(greet("Correct", "!"))}</span>${body}</div>`;
   attachNext(feedbackSlot);
   scrollTop();
 }
@@ -124,14 +234,14 @@ function correctFeedback(feedbackSlot, ex, outputLine) {
 function revealFeedback(feedbackSlot, ex, revealLines) {
   if (!STATE.missed.includes(ex)) STATE.missed.push(ex);
   const body = `${revealLines.join("")}<p>${esc(ex.explanation)}</p>${nextButton()}`;
-  feedbackSlot.innerHTML = `<div class="feedback wrong"><span class="head">Not this time.</span>${body}</div>`;
+  feedbackSlot.innerHTML = `<div class="feedback wrong"><span class="head">${esc(greet("Not this time", "."))}</span>${body}</div>`;
   attachNext(feedbackSlot);
   scrollTop();
 }
 
 function retryFeedback(feedbackSlot, ex, onRetry) {
   const body = `<p><b>Hint:</b> ${esc(ex.hint)}</p>${onRetry ? `<button class="primary" data-retry>Try again</button>` : ""}`;
-  feedbackSlot.innerHTML = `<div class="feedback wrong"><span class="head">Not quite yet.</span>${body}</div>`;
+  feedbackSlot.innerHTML = `<div class="feedback wrong"><span class="head">${esc(greet("Not quite", "."))}</span>${body}</div>`;
   if (onRetry) feedbackSlot.querySelector("[data-retry]").addEventListener("click", onRetry);
   scrollTop();
 }
@@ -243,9 +353,10 @@ function renderCode(ex, inputSlot, feedbackSlot) {
 function renderSummary() {
   const lesson = STATE.lesson;
   const total = lesson.exercises.length;
+  setPageName(`${lesson.title} · Summary`);
   view.innerHTML = `
     <div class="card">
-      <button class="primary" data-home>Back to topics</button>
+      <button class="primary" data-home>${esc(greet("Back to topics", ""))}</button>
       <h2>${esc(lesson.title)} — summary</h2>
       <div class="scoreboard">
         <span class="score-chip">First-try correct: <b>${STATE.score}</b> / ${total}</span>
@@ -253,7 +364,7 @@ function renderSummary() {
       </div>
       ${STATE.missed.length
         ? `<h3>Review what you missed</h3>${STATE.missed.map(missedHtml).join("")}`
-        : `<p>All exercises correct on the first try. Well done!</p>`}
+        : `<p>${esc(greet("All exercises correct on the first try") + ". Well done", "")}!</p>`}
       <button class="primary" data-again>Try again</button>
     </div>`;
   view.querySelector("[data-home]").addEventListener("click", renderHome);
@@ -291,6 +402,7 @@ function initStatus() {
 
 async function init() {
   initStatus();
+  renderStudentWidget();
   try {
     const res = await fetch("content/lessons.json");
     if (!res.ok) throw new Error("Could not load content/lessons.json");

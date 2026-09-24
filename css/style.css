@@ -44,6 +44,104 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
   padding: 18px 20px 6px;
 }
 
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+#student-widget { display: inline-flex; align-items: center; }
+.student-form { display: inline-flex; gap: 6px; align-items: center; }
+.student-form input {
+  width: 120px;
+  border: 1px solid #cfd6e6;
+  border-radius: 8px;
+  padding: 5px 8px;
+  font-size: 13px;
+}
+.student-chip { font-size: 14px; }
+.student-chip b { color: var(--accent); }
+
+.pagebar {
+  background: var(--accent);
+  color: #fff;
+  text-align: center;
+  padding: 6px 16px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.btn-mini {
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+.btn-mini:hover { background: var(--accent-dark); }
+
+.text-btn {
+  border: none;
+  background: none;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 13px;
+  text-decoration: underline;
+}
+
+.section-title { margin-top: 26px; }
+.greeting { color: var(--accent); font-weight: 600; }
+
+.card-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
+.expand-card {
+  border: 1px solid #e2e7f2;
+  border-radius: var(--radius);
+  background: var(--card);
+  overflow: hidden;
+}
+.expand-card.open { border-color: var(--accent); }
+
+.expand-head {
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: none;
+  padding: 14px 36px 14px 16px;
+  position: relative;
+  cursor: pointer;
+  color: var(--ink);
+}
+.expand-head:hover { background: #f4f7ff; }
+.expand-head::after {
+  content: "+";
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 18px;
+}
+.expand-card.open .expand-head::after { content: "–"; }
+
+.expand-name { display: flex; align-items: center; gap: 8px; font-weight: 700; flex-wrap: wrap; }
+.expand-sub { display: block; color: var(--muted); font-size: 13px; margin-top: 2px; }
+.expand-detail { padding: 0 16px 14px; font-size: 14px; }
+.expand-detail a { color: var(--accent); }
+
+.link-list { margin: 4px 0 0; padding-left: 18px; }
+.link-list li { margin-bottom: 4px; }
+
+.pill.soon { background: #f0f1f4; color: var(--muted); }
+
 .brand {
   border: none;
   background: none;
