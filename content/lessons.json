@@ -64,6 +64,19 @@
         { "day": 6, "task": "CSS Grid" },
         { "day": 7, "task": "Project: Personal profile page" }
       ]
+    },
+    {
+      "id": "week2",
+      "title": "Week 2: Responsive Design + JS Basics",
+      "days": [
+        { "day": 8, "task": "Media queries, mobile-first" },
+        { "day": 9, "task": "Variables, data types, operators" },
+        { "day": 10, "task": "Conditionals (if/else)" },
+        { "day": 11, "task": "Loops" },
+        { "day": 12, "task": "Functions" },
+        { "day": 13, "task": "Arrays & objects" },
+        { "day": 14, "task": "Project: Responsive landing page + JS quiz" }
+      ]
     }
   ],
   "lessons": [
