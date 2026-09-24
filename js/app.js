@@ -192,6 +192,7 @@ function renderHome() {
       <div class="card-grid">${STATE.data.byStyle.map(styleCard).join("")}</div>
       ${sectionTitle("By Week")}
       <div class="card-grid">${(STATE.data.weeks || []).map(weekCard).join("")}</div>
+      ${window.colorChallenges ? colorChallenges.homeSection() : ""}
       ${sectionTitle("Python lessons")}
       <div class="lesson-list">
         ${STATE.data.lessons.map((lesson, i) => `
@@ -214,6 +215,7 @@ function renderHome() {
   view.querySelectorAll("[data-week]").forEach((cardEl) => {
     bindDayRows(cardEl, cardEl.dataset.week);
   });
+  if (window.colorChallenges) colorChallenges.bindHome(view);
 }
 
 function bindExpandCards() {
@@ -489,10 +491,18 @@ async function init() {
     const res = await fetch("content/lessons.json");
     if (!res.ok) throw new Error("Could not load content/lessons.json");
     STATE.data = await res.json();
-    renderHome();
   } catch (err) {
     view.innerHTML = `<div class="card"><h2>Could not load the lessons</h2><p>${esc(err.message)}</p></div>`;
+    return;
   }
+  if (window.colorChallenges) {
+    try {
+      await colorChallenges.load();
+    } catch (err) {
+      console.error("Could not load challenges:", err);
+    }
+  }
+  renderHome();
 }
 
 init();

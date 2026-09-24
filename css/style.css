@@ -349,4 +349,62 @@ button.primary:disabled { background: #aab6cc; cursor: not-allowed; }
 
 .footer { text-align: center; color: var(--muted); font-size: 13px; padding: 20px; }
 
+.cha-list { display: grid; gap: 8px; }
+.cha-list .lesson-link { width: 100%; }
+
+.chal-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 4px; }
+.chal-head .progress { margin: 0; }
+
+.goal {
+  background: #eef4ff;
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: var(--ink);
+  font-size: 15px;
+}
+
+.field-label { display: block; font-weight: 700; font-size: 14px; margin: 16px 0 6px; color: var(--ink); }
+
+.code-editor {
+  width: 100%;
+  min-height: 220px;
+  resize: vertical;
+  font-family: "JetBrains Mono", "Fira Code", Menlo, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  border: 2px solid #e2e7f2;
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: var(--code-ink);
+  background: var(--code-bg);
+  white-space: pre;
+}
+.code-editor:focus { outline: none; border-color: var(--accent); }
+
+.chal-buttons { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+.linkish {
+  border: none;
+  background: none;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 6px 4px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.chal-buttons .linkish { margin-top: 12px; }
+
+.preview-frame {
+  width: 100%;
+  height: 250px;
+  margin-top: 14px;
+  border: 2px solid #e2e7f2;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.chal-foot { display: flex; justify-content: space-between; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
+
 .pill { display: inline-block; background: #eef4ff; color: var(--accent); border-radius: 999px; padding: 3px 12px; font-size: 13px; font-weight: 600; }
