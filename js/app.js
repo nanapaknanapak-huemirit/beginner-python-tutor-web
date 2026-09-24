@@ -29,6 +29,24 @@ function saveStudent(name) {
   try { localStorage.setItem(STD_KEY, name); } catch {}
 }
 
+function loadWeekDone(weekId) {
+  try {
+    return JSON.parse(localStorage.getItem("week_progress:" + weekId) || "[]");
+  } catch { return []; }
+}
+
+function saveWeekDone(weekId, days) {
+  try { localStorage.setItem("week_progress:" + weekId, JSON.stringify(days)); } catch {}
+}
+
+function toggleDay(weekId, dayNum) {
+  const done = loadWeekDone(weekId);
+  const idx = done.indexOf(dayNum);
+  if (idx >= 0) done.splice(idx, 1);
+  else done.push(dayNum);
+  saveWeekDone(weekId, done);
+}
+
 function greet(core, suffix) {
   const name = loadStudent();
   return `${core}${name ? `, ${name}` : ""}${suffix || "!"}`;
@@ -99,6 +117,49 @@ function styleCard(style) {
   return expandCard(style.name, "", `<p>${esc(style.text)}</p>`);
 }
 
+function dayRowHtml(day, checked) {
+  return `
+    <button class="day-row${checked ? " done" : ""}" data-day="${day.day}">
+      <span class="day-check">${checked ? "&#10003;" : ""}</span>
+      <span class="day-num">Day ${day.day}</span>
+      <span class="day-task">${esc(day.task)}</span>
+    </button>`;
+}
+
+function weekCard(week) {
+  const done = loadWeekDone(week.id);
+  return `
+    <div class="expand-card" data-week="${esc(week.id)}">
+      <button class="expand-head">
+        <span class="expand-name">${esc(week.title)}</span>
+        <span class="pill week-pill ${done.length === week.days.length ? "" : "soon"}">${done.length} of ${week.days.length} done</span>
+      </button>
+      <div class="expand-detail" hidden>
+        <div class="day-list">${week.days.map((d) => dayRowHtml(d, done.includes(d.day))).join("")}</div>
+      </div>
+    </div>`;
+}
+
+function updateWeekCard(cardEl, weekId) {
+  const week = STATE.data.weeks.find((w) => w.id === weekId);
+  if (!week) return;
+  const done = loadWeekDone(weekId);
+  cardEl.querySelector(".day-list").innerHTML = week.days.map((d) => dayRowHtml(d, done.includes(d.day))).join("");
+  const pill = cardEl.querySelector(".week-pill");
+  pill.textContent = `${done.length} of ${week.days.length} done`;
+  pill.className = `pill week-pill ${done.length === week.days.length ? "" : "soon"}`;
+  bindDayRows(cardEl, weekId);
+}
+
+function bindDayRows(cardEl, weekId) {
+  cardEl.querySelectorAll("[data-day]").forEach((row) => {
+    row.addEventListener("click", () => {
+      toggleDay(weekId, Number(row.dataset.day));
+      updateWeekCard(cardEl, weekId);
+    });
+  });
+}
+
 function renderHome() {
   if (!STATE.data) return;
   setPageName("Home");
@@ -113,6 +174,8 @@ function renderHome() {
       <div class="card-grid">${STATE.data.learningPaths.map(pathCard).join("")}</div>
       ${sectionTitle("By Style")}
       <div class="card-grid">${STATE.data.byStyle.map(styleCard).join("")}</div>
+      ${sectionTitle("By Week")}
+      <div class="card-grid">${(STATE.data.weeks || []).map(weekCard).join("")}</div>
       ${sectionTitle("Python lessons")}
       <div class="lesson-list">
         ${STATE.data.lessons.map((lesson, i) => `
@@ -132,6 +195,9 @@ function renderHome() {
     });
   });
   bindExpandCards();
+  view.querySelectorAll("[data-week]").forEach((cardEl) => {
+    bindDayRows(cardEl, cardEl.dataset.week);
+  });
 }
 
 function bindExpandCards() {

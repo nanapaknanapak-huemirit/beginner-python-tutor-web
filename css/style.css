@@ -142,6 +142,51 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
 
 .pill.soon { background: #f0f1f4; color: var(--muted); }
 
+.expand-name .pill { margin-left: auto; flex: 0 0 auto; }
+
+.day-list { display: grid; gap: 6px; }
+
+.day-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  text-align: left;
+  border: 1px solid #e2e7f2;
+  background: #fff;
+  border-radius: 9px;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--ink);
+}
+.day-row:hover { border-color: var(--accent); background: #f4f7ff; }
+.day-row.done { background: #f3f8f5; }
+.day-row.done .day-task { text-decoration: line-through; color: var(--muted); }
+
+.day-check {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #cfd6e6;
+  border-radius: 5px;
+  background: #fff;
+  color: #fff;
+  font-size: 13px;
+  line-height: 15px;
+  text-align: center;
+  flex: 0 0 auto;
+}
+.day-row.done .day-check { background: var(--ok); border-color: var(--ok); }
+
+.day-num {
+  flex: 0 0 auto;
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 13px;
+  width: 54px;
+}
+.day-task { flex: 1; }
+
 .brand {
   border: none;
   background: none;

@@ -51,6 +51,21 @@
     { "name": "Project-based", "text": "Learn by building: pick a project such as a calculator or a simple game, and let it teach you what you need." },
     { "name": "Community", "text": "Learn together — study groups, Discord servers, and open source contributions." }
   ],
+  "weeks": [
+    {
+      "id": "week1",
+      "title": "Week 1: HTML & CSS Basics",
+      "days": [
+        { "day": 1, "task": "HTML structure, tags, links, images" },
+        { "day": 2, "task": "Lists, tables, forms" },
+        { "day": 3, "task": "CSS selectors, colors, fonts" },
+        { "day": 4, "task": "Box model, spacing, margins" },
+        { "day": 5, "task": "Flexbox" },
+        { "day": 6, "task": "CSS Grid" },
+        { "day": 7, "task": "Project: Personal profile page" }
+      ]
+    }
+  ],
   "lessons": [
     {
       "id": "variables",
